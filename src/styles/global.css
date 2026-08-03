@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Keep in sync with theme values in src/data/site.js — Tailwind v4 reads CSS, not JS, at build time. */
+@theme {
+	--color-primary: #9c4f3c;
+	--color-accent: #e8c07d;
+	--font-heading: "Playfair Display", serif;
+	--font-body: "Inter", sans-serif;
+}
+
+html {
+	scroll-behavior: smooth;
+}

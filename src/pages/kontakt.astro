@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import CookieBanner from "../components/CookieBanner.astro";
+import ContactForm from "../components/ContactForm.astro";
+import { site } from "../data/site.js";
+
+const { address, phone, email, openingHours } = site.business;
+const mapQuery = encodeURIComponent(`${address.street}, ${address.postalCode} ${address.city}`);
+---
+
+<BaseLayout
+	title="Kontakt"
+	description={`Book en tid hos ${site.business.name} i Aarhus C. Ring, skriv eller udfyld formularen, så vender vi hurtigt tilbage.`}
+>
+	<Header />
+
+	<main class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+		<div class="mx-auto max-w-2xl text-center">
+			<h1 class="font-heading text-4xl font-bold text-stone-900">Kontakt os</h1>
+			<p class="mt-4 text-stone-600">
+				Book en tid, stil et spørgsmål, eller hør nærmere om vores services — vi svarer hurtigst muligt.
+			</p>
+		</div>
+
+		<div class="mt-14 grid gap-10 md:grid-cols-2">
+			<div class="space-y-8">
+				<div class="grid gap-6 sm:grid-cols-2">
+					<div>
+						<h2 class="font-heading font-semibold text-stone-900">Adresse</h2>
+						<p class="mt-2 text-stone-600">
+							{address.street}<br />
+							{address.postalCode} {address.city}
+						</p>
+					</div>
+					<div>
+						<h2 class="font-heading font-semibold text-stone-900">Kontakt</h2>
+						<p class="mt-2 text-stone-600">
+							<a href={`tel:${phone.replace(/\s/g, "")}`} class="hover:text-primary">{phone}</a><br />
+							<a href={`mailto:${email}`} class="hover:text-primary">{email}</a>
+						</p>
+					</div>
+				</div>
+
+				<div>
+					<h2 class="font-heading font-semibold text-stone-900">Åbningstider</h2>
+					<ul class="mt-2 space-y-1 text-stone-600">
+						{openingHours.map((entry) => (
+							<li class="flex justify-between gap-4 sm:max-w-xs">
+								<span>{entry.days}</span>
+								<span>{entry.hours}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<iframe
+					title="Kort over salonens placering"
+					src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+					class="h-72 w-full rounded-2xl border-0"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+				></iframe>
+			</div>
+
+			<ContactForm />
+		</div>
+	</main>
+
+	<Footer />
+	<CookieBanner />
+</BaseLayout>

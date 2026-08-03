@@ -1,0 +1,83 @@
+---
+import { site } from "../data/site.js";
+
+const navLinks = [
+	{ href: "#services", label: "Services" },
+	{ href: "#om-os", label: "Om os" },
+	{ href: "#galleri", label: "Galleri" },
+	{ href: "#kontakt", label: "Kontakt" },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
+	<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+		<a href="#" class="font-heading text-xl font-semibold text-primary">
+			{site.business.name}
+		</a>
+
+		<nav class="hidden md:block">
+			<ul class="flex items-center gap-8 text-sm font-medium text-stone-700">
+				{navLinks.map((link) => (
+					<li>
+						<a href={link.href} class="transition-colors hover:text-primary">{link.label}</a>
+					</li>
+				))}
+				<li>
+					<a
+						href={`tel:${site.business.phone.replace(/\s/g, "")}`}
+						class="rounded-full bg-primary px-5 py-2 text-white transition-colors hover:bg-primary/90"
+					>
+						Ring nu
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<button
+			id="menu-toggle"
+			type="button"
+			aria-label="Åbn menu"
+			aria-expanded="false"
+			class="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+		>
+			<span class="h-0.5 w-6 bg-stone-800 transition-transform"></span>
+			<span class="h-0.5 w-6 bg-stone-800 transition-opacity"></span>
+			<span class="h-0.5 w-6 bg-stone-800 transition-transform"></span>
+		</button>
+	</div>
+
+	<nav id="mobile-menu" class="hidden border-t border-stone-100 md:hidden">
+		<ul class="flex flex-col gap-1 px-6 py-4 text-sm font-medium text-stone-700">
+			{navLinks.map((link) => (
+				<li>
+					<a href={link.href} class="block py-2 transition-colors hover:text-primary">{link.label}</a>
+				</li>
+			))}
+			<li class="pt-2">
+				<a
+					href={`tel:${site.business.phone.replace(/\s/g, "")}`}
+					class="block rounded-full bg-primary px-5 py-2 text-center text-white"
+				>
+					Ring nu
+				</a>
+			</li>
+		</ul>
+	</nav>
+</header>
+
+<script>
+	const toggle = document.getElementById("menu-toggle");
+	const menu = document.getElementById("mobile-menu");
+
+	toggle?.addEventListener("click", () => {
+		const isOpen = menu?.classList.toggle("hidden") === false;
+		toggle.setAttribute("aria-expanded", String(isOpen));
+	});
+
+	menu?.querySelectorAll("a").forEach((link) => {
+		link.addEventListener("click", () => {
+			menu.classList.add("hidden");
+			toggle?.setAttribute("aria-expanded", "false");
+		});
+	});
+</script>

@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import { site } from "../data/site.js";
+---
+
+<section id="om-os" class="bg-stone-50 py-20 md:py-28">
+	<div class="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2">
+		<Image
+			src="https://picsum.photos/seed/frisoersofie-about/900/1100"
+			alt={`Sofie i salonen hos ${site.business.name}`}
+			width={900}
+			height={1100}
+			class="w-full rounded-3xl object-cover shadow-xl"
+		/>
+
+		<div>
+			<h2 class="font-heading text-3xl font-bold text-stone-900 md:text-4xl">Om os</h2>
+			<p class="mt-6 text-stone-600">
+				{site.business.name} åbnede dørene på {site.business.address.street} med én ambition: at
+				give hver eneste kunde en klipning, der passer til dem — ikke bare til trenden. Med over
+				15 års erfaring i faget lægger vi vægt på ordentlig rådgivning, kvalitetsprodukter og en
+				rolig stund midt i en travl hverdag.
+			</p>
+			<p class="mt-4 text-stone-600">
+				Uanset om du kommer for en hurtig herreklip eller en større farveforandring, tager vi os
+				tiden til at forstå, hvad du ønsker — det er derfor vores kunder bliver ved med at komme
+				igen.
+			</p>
+		</div>
+	</div>
+</section>

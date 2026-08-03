@@ -1,0 +1,42 @@
+---
+import { site } from "../data/site.js";
+
+const year = new Date().getFullYear();
+const { address, phone, email } = site.business;
+---
+
+<footer class="border-t border-stone-100 bg-stone-50">
+	<div class="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 md:grid-cols-3">
+		<div>
+			<p class="font-heading text-lg font-semibold text-stone-900">{site.business.name}</p>
+			<p class="mt-3 text-sm text-stone-600">
+				{address.street}<br />
+				{address.postalCode} {address.city}
+			</p>
+			<p class="mt-3 text-sm text-stone-600">
+				<a href={`tel:${phone.replace(/\s/g, "")}`} class="hover:text-primary">{phone}</a><br />
+				<a href={`mailto:${email}`} class="hover:text-primary">{email}</a>
+			</p>
+		</div>
+
+		<div>
+			<p class="font-heading font-semibold text-stone-900">Følg os</p>
+			<div class="mt-3 flex gap-4 text-sm text-stone-600">
+				<a href={site.social.facebook} target="_blank" rel="noopener noreferrer" class="hover:text-primary">Facebook</a>
+				<a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class="hover:text-primary">Instagram</a>
+			</div>
+		</div>
+
+		<div>
+			<p class="font-heading font-semibold text-stone-900">Info</p>
+			<div class="mt-3 flex flex-col gap-2 text-sm text-stone-600">
+				<a href="/privatlivspolitik" class="hover:text-primary">Privatlivspolitik</a>
+				<a href="/kontakt" class="hover:text-primary">Kontakt</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="border-t border-stone-100 px-6 py-6 text-center text-xs text-stone-500">
+		&copy; {year} {site.business.name}. Alle rettigheder forbeholdes.
+	</div>
+</footer>

@@ -1,0 +1,20 @@
+---
+import { site } from "../data/site.js";
+---
+
+<section class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+	<div class="mx-auto max-w-2xl text-center">
+		<h2 class="font-heading text-3xl font-bold text-stone-900 md:text-4xl">Hvad kunderne siger</h2>
+	</div>
+
+	<div class="mt-14 grid gap-6 md:grid-cols-3">
+		{site.testimonials.map((testimonial) => (
+			<figure class="rounded-2xl bg-stone-50 p-8">
+				<blockquote class="text-stone-700">
+					<p>&ldquo;{testimonial.quote}&rdquo;</p>
+				</blockquote>
+				<figcaption class="mt-6 font-medium text-stone-900">— {testimonial.name}</figcaption>
+			</figure>
+		))}
+	</div>
+</section>
