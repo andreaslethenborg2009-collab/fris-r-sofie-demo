@@ -13,10 +13,10 @@ const { address, phone, email } = site.business;
 				{address.street}<br />
 				{address.postalCode} {address.city}
 			</p>
-			<p class="mt-3 text-sm text-stone-600">
-				<a href={`tel:${phone.replace(/\s/g, "")}`} class="hover:text-primary">{phone}</a><br />
-				<a href={`mailto:${email}`} class="hover:text-primary">{email}</a>
-			</p>
+			<div class="mt-3 flex flex-col text-sm text-stone-600">
+				<a href={`tel:${phone.replace(/\s/g, "")}`} class="inline-block py-1 hover:text-primary">{phone}</a>
+				<a href={`mailto:${email}`} class="inline-block py-1 hover:text-primary">{email}</a>
+			</div>
 		</div>
 
 		<div>
