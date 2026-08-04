@@ -9,10 +9,6 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://frisoersofie-demo.pages.dev',
 
-  image: {
-    domains: ['picsum.photos', 'fastly.picsum.photos']
-  },
-
   vite: {
     plugins: [tailwindcss()]
   },

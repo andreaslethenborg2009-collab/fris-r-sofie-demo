@@ -2,10 +2,12 @@
 import { Image } from "astro:assets";
 import { site } from "../data/site.js";
 
-const images = [1, 2, 3, 4, 5, 6].map((n) => ({
-	src: `https://picsum.photos/seed/frisoersofie-gallery-${n}/600/600`,
-	alt: `Billede ${n} fra ${site.business.name}`,
-}));
+const images = [
+	{ src: "/images/gallery-1.jpg", alt: `Produkter i salonen hos ${site.business.name}` },
+	{ src: "/images/gallery-2.jpg", alt: `Indretning i salonen hos ${site.business.name}` },
+	{ src: "/images/gallery-3.jpg", alt: `Interiør i salonen hos ${site.business.name}` },
+	{ src: "/images/gallery-4.jpg", alt: `Klipning hos ${site.business.name}` },
+];
 ---
 
 <section id="galleri" class="bg-stone-50 py-20 md:py-28">
@@ -15,7 +17,7 @@ const images = [1, 2, 3, 4, 5, 6].map((n) => ({
 			<p class="mt-4 text-stone-600">Et kig ind i salonen og noget af vores arbejde.</p>
 		</div>
 
-		<div class="mt-14 grid grid-cols-2 gap-4 md:grid-cols-3">
+		<div class="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4">
 			{images.map((image) => (
 				<Image
 					src={image.src}
