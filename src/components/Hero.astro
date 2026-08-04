@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { site } from "../data/site.js";
+import heroImage from "../assets/images/hero.jpg";
 ---
 
 <section class="relative overflow-hidden bg-stone-50">
@@ -31,7 +32,7 @@ import { site } from "../data/site.js";
 
 		<div class="relative">
 			<Image
-				src="/images/hero.jpg"
+				src={heroImage}
 				alt={`Frisør styler kundes hår hos ${site.business.name}`}
 				width={1000}
 				height={1000}

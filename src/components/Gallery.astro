@@ -1,12 +1,16 @@
 ---
 import { Image } from "astro:assets";
 import { site } from "../data/site.js";
+import gallery1 from "../assets/images/gallery-1.jpg";
+import gallery2 from "../assets/images/gallery-2.jpg";
+import gallery3 from "../assets/images/gallery-3.jpg";
+import gallery4 from "../assets/images/gallery-4.jpg";
 
 const images = [
-	{ src: "/images/gallery-1.jpg", alt: `Produkter i salonen hos ${site.business.name}` },
-	{ src: "/images/gallery-2.jpg", alt: `Indretning i salonen hos ${site.business.name}` },
-	{ src: "/images/gallery-3.jpg", alt: `Interiør i salonen hos ${site.business.name}` },
-	{ src: "/images/gallery-4.jpg", alt: `Klipning hos ${site.business.name}` },
+	{ src: gallery1, alt: `Produkter i salonen hos ${site.business.name}` },
+	{ src: gallery2, alt: `Indretning i salonen hos ${site.business.name}` },
+	{ src: gallery3, alt: `Interiør i salonen hos ${site.business.name}` },
+	{ src: gallery4, alt: `Klipning hos ${site.business.name}` },
 ];
 ---
 
