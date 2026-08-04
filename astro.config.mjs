@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://frisoersofie-demo.pages.dev',
+  site: 'https://frisor-sofie-demo.netlify.app',
 
   vite: {
     plugins: [tailwindcss()]
